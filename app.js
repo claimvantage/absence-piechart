@@ -19,7 +19,9 @@ var BAR = "|";
 var COLON = ":"
 var COMMA = ","
 
+
 app.get(PATH, function(req, res){
+    /*
     var paramatersByKey = getURLParameters(req);
     console.log(paramatersByKey);
 
@@ -58,7 +60,7 @@ app.get(PATH, function(req, res){
     
     var height = chartHeightWidth[0];
     var width = chartHeightWidth[1];
-    
+
     var chartNode = new ChartjsNode(height, width);
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
@@ -80,6 +82,9 @@ app.get(PATH, function(req, res){
     .then(() => {
         res.sendFile('./testimage.png', { root: __dirname });
     });
+    */
+   res.setHeader('Content-Type', 'text/plain');
+   res.end('Hello World\n');
   }
 );
 
