@@ -1,0 +1,22 @@
+{
+  "name": "piechart-js",
+  "version": "1.0.0",
+  "description": "app for returning pie chart images",
+  "main": "app.js",
+  "dependencies": {
+    "chart.js": "^2.8.0",
+    "chartjs-node": "^1.7.1",
+    "express": "^4.16.4",
+    "jsdom": "^9.12.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "peichart"
+  ],
+  "author": "Jonathan Riordan",
+  "license": "ISC"
+}
