@@ -21,14 +21,12 @@ var COMMA = ","
 
 app.get(PATH, function(req, res){
     var paramatersByKey = getURLParameters(req);
-    console.log(paramatersByKey);
 
-    var chartHeightWidth = paramatersByKey.get(CHS).split("x")
-    var chartData = paramatersByKey.get(CHD).split(COLON);
-    var data = chartData[1].split(COMMA);
+    var chartHeightWidth = paramatersByKey.get(CHS).split("x");
 
     var chartLabels = paramatersByKey.get(CHL).split(BAR);
     var chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
+
     var chartColours = paramatersByKey.get(CHCO).split(BAR);
     hexColours = addHashTags(chartColours)
     
@@ -37,7 +35,7 @@ app.get(PATH, function(req, res){
       data: {
         labels: chartLabels,
         datasets: [{
-          data: data,
+          data: [1,2,3,4],
           backgroundColor: hexColours,
           borderWidth: 0
         }]
@@ -90,7 +88,11 @@ function getURLParameters(req) {
 
   for (const key in req.query) {
     var paramter = req.query[key];
-    paramatersByKey.set(key, paramter);
+    var k = key.split(";");
+    if (k.length > 1) {
+      paramatersByKey.set(k[1], paramter);
+    }
+    paramatersByKey.set(k[0], paramter);
   }
   return paramatersByKey;
 }
@@ -104,8 +106,4 @@ function addHashTags(colours) {
   return hexColours;
 }
 
-function split(strings, seperator) {
-  return strings.split(seperator)
-}
-
-app.listen(PORT);
+app.listen(PORT); 
