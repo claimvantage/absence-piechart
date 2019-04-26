@@ -66,7 +66,7 @@ app.get(PATH, function(req, res){
 
     let uniqueNumber = Math.random().toString(36).substring(7);
 
-    var chartNode = new ChartjsNode(height, width);
+    var chartNode = new ChartjsNode(1200, width);
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
         return chartNode.getImageBuffer('image/png');
