@@ -54,7 +54,7 @@ app.get(PATH, function(req, res){
          },
          responsive: false,
          legend: {
-            position: 'right' // place legend on the right side of chart
+            position: 'bottom'
          }
       }
     };
