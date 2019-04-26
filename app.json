@@ -1,0 +1,8 @@
+{
+    "name": "Pie Chart API",
+    "description": "Node js to return a png image of a pie chart",
+    "repository": "",
+    "logo": "",
+    "keywords": ["node", "express", "heroku", "pie chart"],
+    "image": "heroku/nodejs"
+  }
