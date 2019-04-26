@@ -21,7 +21,6 @@ var COMMA = ","
 
 
 app.get(PATH, function(req, res){
-    /*
     var paramatersByKey = getURLParameters(req);
     console.log(paramatersByKey);
 
@@ -82,9 +81,6 @@ app.get(PATH, function(req, res){
     .then(() => {
         res.sendFile('./testimage.png', { root: __dirname });
     });
-    */
-   res.setHeader('Content-Type', 'text/plain');
-   res.end('Hello World\n');
   }
 );
 
