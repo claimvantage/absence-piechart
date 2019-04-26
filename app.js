@@ -1,8 +1,8 @@
 var express = require('express');
 var app = express();
-
 const ChartjsNode = require('chartjs-node');
 
+// URL Keys
 var CHS = 'chs'
 var CHD = "chd";
 var CHS = "chs";
@@ -20,27 +20,28 @@ var SEMI_COLON = ";";
 var COMMA = ",";
 var X = "x";
 
-app.get(PATH, function(req, res){
-    var paramatersByKey = getURLParameters(req);
+app.get(PATH, function(req, res) {
+    let paramatersByKey = getURLParameters(req);
 
-    var chartData = paramatersByKey.get(CHD).split(COLON);
-    var data = chartData[1].split(COMMA);
+    let chartData = paramatersByKey.get(CHD).split(COLON);
+    let data = chartData[1].split(COMMA);
 
-    var chartWidthHeight = paramatersByKey.get(CHS).split(X);
+    let chartWidthHeight = paramatersByKey.get(CHS).split(X);
+    
+    let chartLabels = paramatersByKey.get(CHL).split(BAR);
+    let chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
+    let labels = createLabels(chartDataLabels, chartLabels);
 
-    var chartLabels = paramatersByKey.get(CHL).split(BAR);
-    var chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
-    var labels = createLabels(chartDataLabels, chartLabels);
-
-    var chartColours = paramatersByKey.get(CHCO).split(BAR);
+    let chartColours = paramatersByKey.get(CHCO).split(BAR);
     hexColours = addHashTags(chartColours)
     
-    var chartJsOptions = createChartOptions(labels, data, hexColours);
+    let chartJsOptions = createChartOptions(labels, data, hexColours);
     let randomCharacters = random();
-    var height = chartWidthHeight[0];
-    var width = chartWidthHeight[1];
+    let height = chartWidthHeight[0];
+    let width = chartWidthHeight[1];
 
-    var chartNode = new ChartjsNode(height, width);
+    let chartNode = new ChartjsNode(height, width);
+
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
         return chartNode.getImageBuffer('image/png');
@@ -59,7 +60,7 @@ app.get(PATH, function(req, res){
 );
 
 function createChartOptions(labels, data, hexColours) {
-  var chartJsOptions = {
+  let chartJsOptions = {
     type: 'pie',
     data: {
       labels: labels,
@@ -86,11 +87,11 @@ function createChartOptions(labels, data, hexColours) {
 }
 
 function getURLParameters(req) {
-  var paramatersByKey = new Map();
+  let paramatersByKey = new Map();
 
   for (const key in req.query) {
-    var paramter = req.query[key];
-    var k = key.split(SEMI_COLON);
+    let paramter = req.query[key];
+    let k = key.split(SEMI_COLON);
     if (k.length > 1) {
       paramatersByKey.set(k[1], paramter);
     }
@@ -100,19 +101,19 @@ function getURLParameters(req) {
 }
 
 function addHashTags(colours) {
-  var hexColours = [];
+  let hexColours = [];
   for (c in colours) {
-    var hex = "#" + colours[c];
+    let hex = "#" + colours[c];
     hexColours.push(hex);
   }
   return hexColours;
 }
 
 function createLabels(statues, timeLabels) {
-  var labels = [];
-  var labelsSize = statues.length;
+  let labels = [];
+  let labelsSize = statues.length;
   for (i = 0; i < labelsSize; i++) {
-    var newLabel = statues[i] + "-" + timeLabels[i];
+    let newLabel = statues[i] + "-" + timeLabels[i];
     labels.push(newLabel);
   }
   return labels;
