@@ -19,7 +19,6 @@ var BAR = "|";
 var COLON = ":"
 var COMMA = ","
 
-
 app.get(PATH, function(req, res){
     var paramatersByKey = getURLParameters(req);
     console.log(paramatersByKey);
@@ -60,6 +59,8 @@ app.get(PATH, function(req, res){
     var height = chartHeightWidth[0];
     var width = chartHeightWidth[1];
 
+    let uniqueNumber = Math.random().toString(36).substring(7);
+
     var chartNode = new ChartjsNode(height, width);
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
@@ -76,10 +77,10 @@ app.get(PATH, function(req, res){
         streamResult.stream // => Stream object
         streamResult.length // => Integer length of stream
         // write to a file
-        return chartNode.writeImageToFile('image/png', './testimage.png');
+        return chartNode.writeImageToFile('image/png', './'+ uniqueNumber + '.png');
     })
     .then(() => {
-        res.sendFile('./testimage.png', { root: __dirname });
+        res.sendFile('./'+ uniqueNumber + '.png', { root: __dirname });
     });
   }
 );
