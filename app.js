@@ -112,7 +112,7 @@ function createLabels(statues, timeLabels) {
   var labels = [];
   var labelsSize = statues.length;
   for (i = 0; i < labelsSize; i++) {
-    var newLabel = statues[i]; //+ "-" + timeLabels[i];
+    var newLabel = statues[i] + "-" + timeLabels[i];
     labels.push(newLabel);
   }
   return labels;
