@@ -104,4 +104,8 @@ function addHashTags(colours) {
   return hexColours;
 }
 
+function split(strings, seperator) {
+  return strings.split(seperator)
+}
+
 app.listen(PORT);
