@@ -54,6 +54,8 @@ app.get(PATH, function(req, res){
          },
          responsive: false,
          legend: {
+            padding: 5,
+            fontSize: 8,
             position: 'left'
          }
       }
