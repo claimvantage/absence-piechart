@@ -12,7 +12,7 @@ var CHDL = "chdl";
 var CHCO = "chco";
 
 var PATH = "/piechart";
-var PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // seperators
 var BAR = "|";
