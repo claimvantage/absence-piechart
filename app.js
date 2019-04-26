@@ -71,12 +71,6 @@ function createChartOptions(labels, data, hexColours) {
       }]
     },
     options: {
-       title: {
-        display: false,
-       },
-       chartArea: {
-          backgroundColor: '#ffffff'
-       },
        responsive: false,
        legend: {
           position: 'right'
@@ -92,10 +86,12 @@ function getURLParameters(req) {
   for (const key in req.query) {
     let paramter = req.query[key];
     let k = key.split(SEMI_COLON);
+
     if (k.length > 1) {
       paramatersByKey.set(k[1], paramter);
+    } else {
+      paramatersByKey.set(k[0], paramter);
     }
-    paramatersByKey.set(k[0], paramter);
   }
   return paramatersByKey;
 }
