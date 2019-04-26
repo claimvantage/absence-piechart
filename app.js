@@ -21,11 +21,16 @@ var COMMA = ","
 
 app.get(PATH, function(req, res){
     var paramatersByKey = getURLParameters(req);
+    console.log(paramatersByKey);
+
+    var chartData = paramatersByKey.get(CHD).split(COLON);
+    var data = chartData[1].split(COMMA);
 
     var chartHeightWidth = paramatersByKey.get(CHS).split("x");
 
     var chartLabels = paramatersByKey.get(CHL).split(BAR);
     var chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
+    var labels = createLabels(chartDataLabels, chartLabels);
 
     var chartColours = paramatersByKey.get(CHCO).split(BAR);
     hexColours = addHashTags(chartColours)
@@ -33,9 +38,9 @@ app.get(PATH, function(req, res){
     var chartJsOptions = {
       type: 'pie',
       data: {
-        labels: chartLabels,
+        labels: labels,
         datasets: [{
-          data: [1,2,3,4],
+          data: data,
           backgroundColor: hexColours,
           borderWidth: 0
         }]
@@ -104,6 +109,16 @@ function addHashTags(colours) {
     hexColours.push(hex);
   }
   return hexColours;
+}
+
+function createLabels(statues, timeLabels) {
+  var labels = [];
+  var labelsSize = statues.length;
+  for (i = 0; i < labelsSize; i++) {
+    var newLabel = statues[i] + "-" + timeLabels[i];
+    labels.push(newLabel);
+  }
+  return labels;
 }
 
 app.listen(PORT); 
