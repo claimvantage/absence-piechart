@@ -26,7 +26,7 @@ app.get(PATH, function(req, res){
     var chartData = paramatersByKey.get(CHD).split(COLON);
     var data = chartData[1].split(COMMA);
 
-    var chartHeightWidth = paramatersByKey.get(CHS).split("x");
+    var chartWidthHeight = paramatersByKey.get(CHS).split("x");
 
     var chartLabels = paramatersByKey.get(CHL).split(BAR);
     var chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
@@ -59,12 +59,12 @@ app.get(PATH, function(req, res){
       }
     };
     
-    var height = chartHeightWidth[0];
-    var width = chartHeightWidth[1];
+    var height = chartWidthHeight[0];
+    var width = chartWidthHeight[1];
 
     let uniqueNumber = Math.random().toString(36).substring(7);
 
-    var chartNode = new ChartjsNode(1000, width);
+    var chartNode = new ChartjsNode(height, width);
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
         return chartNode.getImageBuffer('image/png');
