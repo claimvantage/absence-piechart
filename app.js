@@ -109,7 +109,10 @@ function createLabels(statues, timeLabels) {
   let labels = [];
   let labelsSize = statues.length;
   for (i = 0; i < labelsSize; i++) {
-    let newLabel = statues[i] + "-" + timeLabels[i];
+    let newLabel = statues[i];
+    if (timeLabels[i] != "") {
+      newLabel +=  "-" + timeLabels[i]
+    }
     labels.push(newLabel);
   }
   return labels;
