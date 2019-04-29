@@ -2,7 +2,7 @@
 
 The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts).
 
-This is a Node js application that can run on a Heroku server that returns the buffer of a PNG image. The arc values for the pie chart are retrieved from the request URL.
+This is a Node js application that can run on a Heroku server that returns the buffer of a PNG image. The arc values for the pie chart are retrieved from the request URL. The pie charts are drawn using the [Chart.js](https://www.chartjs.org/) library.
 
 ![pieChart-NodeJs](https://user-images.githubusercontent.com/6918585/56890627-e8237f80-6a71-11e9-9f40-66a3e986d7a6.jpeg)
 
@@ -37,6 +37,9 @@ To push your local changes to the Heroku server, do the following commands in Te
 1. git add --all
 2. git commit -m "commit message goes here"
 3. git push heroku master
+
+## Libraries
+1. https://www.chartjs.org/
 
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
