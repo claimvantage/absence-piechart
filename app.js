@@ -2,15 +2,15 @@ var express = require('express');
 var app = express();
 const ChartjsNode = require('chartjs-node');
 
+const PATH = "/piechart";
+const PORT = process.env.PORT || 3000;
+
 // URL Keys
 const CHS = 'chs'
 const CHD = "chd";
 const CHL = "chl";
 const CHDL = "chdl";
 const CHCO = "chco";
-
-const PATH = "/piechart";
-const PORT = process.env.PORT || 3000;
 
 // seperators
 const BAR = "|";
@@ -38,7 +38,6 @@ app.get(PATH, function(req, res) {
     hexColours = addHashTags(chartColours)
     
     let chartJsOptions = createChartOptions(labels, data, hexColours);
-    let randomCharacters = random();
     let width = chartWidthHeight[0];
     let height = chartWidthHeight[1];
 
@@ -113,10 +112,6 @@ function createLabels(statues, timeLabels) {
     labels.push(newLabel);
   }
   return labels;
-}
-
-function random() {
-  return Math.random().toString(36).substring(7);
 }
 
 app.listen(PORT); 
