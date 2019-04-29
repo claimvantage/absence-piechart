@@ -28,19 +28,19 @@ const X = 'x';
 const DASH = '-';
 const ZERO_WEEKS = '0 weeks';
 
-app.get(PATH, function(req, res) {
+app.get(PATH, function (req, res) {
   let paramatersByKey = parseQuery(req);
 
   let chartData = paramatersByKey.get(CHD).split(COLON);
   let data = chartData[1].split(COMMA);
 
   let chartLabels = paramatersByKey.get(CHL).split(BAR);
-  let chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
+  let chartDataLabels = paramatersByKey.get(CHDL).split(BAR);
   let labels = createStatusTimeLabels(chartDataLabels, chartLabels);
 
   let chartColours = paramatersByKey.get(CHCO).split(BAR);
   let hexColours = addHashTags(chartColours);
-  
+
   let chartJsOptions = createChartOptions(labels, data, hexColours);
   let chartWidthHeight = paramatersByKey.get(CHS).split(X);
 
@@ -54,11 +54,11 @@ function response(res, options, chartWidthHeight) {
 
   return chartNode.drawChart(options)
     .then(() => {
-        return chartNode.getImageBuffer('image/png');
+      return chartNode.getImageBuffer('image/png');
     })
     .then(buffer => {
-        res.write(buffer);
-        res.end();
+      res.write(buffer);
+      res.end();
     });
 }
 
@@ -73,11 +73,11 @@ function createChartOptions(labels, data, hexColours) {
       }]
     },
     options: {
-       responsive: false,
-       legend: {
+      responsive: false,
+      legend: {
         position: 'right',
         boxWidth: 20
-       }
+      }
     }
   };
   return chartJsOptions;
@@ -116,7 +116,7 @@ function createStatusTimeLabels(statues, timeLabels) {
   for (let i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
     if (timeLabels[i] !== '') {
-      newLabel +=  DASH + timeLabels[i];
+      newLabel += DASH + timeLabels[i];
     } else {
       newLabel += DASH + ZERO_WEEKS;
     }

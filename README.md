@@ -1,15 +1,10 @@
 # Absence Pie Chart
 
-The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts).
+The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts). The solution we have provided is for Pie Charts only.
 
 This is a Node js application that can run on a Heroku server that returns the buffer of a PNG image. The arc values for the pie chart are retrieved from the request URL. The pie charts are drawn using the [Chart.js](https://www.chartjs.org/) library.
 
 ![nodejsPieChart](https://user-images.githubusercontent.com/6918585/56896571-fa0e1e00-6a83-11e9-8f13-53058b0cd4d6.jpeg)
-
-## Base URL
-http://localhost:3000/piechart?
-
-This is the base URL for the pie chart requests.
 
 ## URL Parameters:
 The following are the parameters we support. In order for a pie chart to be drawn, the following parameters have to be present in the URL. 
@@ -25,6 +20,8 @@ http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20
 
 ## Run Local Web Server
 To run the following application on your localhost, do the following.
+
+1. Make sure you have Node Js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
 1. Clone this repo.
 2. In Terminal, type the following commands.
  - cd absence-piechart 
