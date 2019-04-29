@@ -49,14 +49,8 @@ app.get(PATH, function(req, res) {
         return chartNode.getImageBuffer('image/png');
     })
     .then(buffer => {
-        Array.isArray(buffer)
-        return chartNode.getImageStream('image/png');
-    })
-    .then(streamResult => {
-        return chartNode.writeImageToFile('image/png', './'+ randomCharacters + '.png');
-    })
-    .then(() => {
-        res.sendFile('./'+ randomCharacters + '.png', { root: __dirname });
+        res.write(buffer);
+        res.end();
     });
   }
 );
