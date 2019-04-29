@@ -2,6 +2,7 @@
 
 This is a node js application that can be run on a Heroku server that returns the buffer of a PNG image. The values for the arcs in the pie chart are retrieved from the URL. 
 
+## Base URL
 http://localhost:3000/piechart?
 This is the base URL for the pie chart requests.
 
