@@ -1,7 +1,7 @@
 {
     "name": "Pie Chart API",
     "description": "Node js to return a png image of a pie chart",
-    "repository": "",
+    "repository": "https://github.com/claimvantage/Absence-PieChart",
     "logo": "",
     "keywords": ["node", "express", "heroku", "pie chart"],
     "image": "heroku/nodejs"
