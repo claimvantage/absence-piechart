@@ -34,4 +34,6 @@ To push your local changes to the Heroku server, do the following commands in te
 1. https://developers.google.com/chart/image/docs/making_charts
 2. https://www.chartjs.org/
 
+## Example
+
 
