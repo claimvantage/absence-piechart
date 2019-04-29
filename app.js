@@ -3,22 +3,25 @@ var app = express();
 const ChartjsNode = require('chartjs-node');
 
 // URL Keys
-var CHS = 'chs'
-var CHD = "chd";
-var CHS = "chs";
-var CHL = "chl";
-var CHDL = "chdl";
-var CHCO = "chco";
+const CHS = 'chs'
+const CHD = "chd";
+const CHS = "chs";
+const CHL = "chl";
+const CHDL = "chdl";
+const CHCO = "chco";
 
-var PATH = "/piechart";
+const PATH = "/piechart";
 const PORT = process.env.PORT || 3000;
 
 // seperators
-var BAR = "|";
-var COLON = ":";
-var SEMI_COLON = ";";
-var COMMA = ",";
-var X = "x";
+const BAR = "|";
+const COLON = ":";
+const SEMI_COLON = ";";
+const COMMA = ",";
+const X = "x";
+
+const DASH = "-"
+const ZERO_WEEKS = "0 weeks";
 
 app.get(PATH, function(req, res) {
     let paramatersByKey = getURLParameters(req);
@@ -111,7 +114,9 @@ function createLabels(statues, timeLabels) {
   for (i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
     if (timeLabels[i] != "") {
-      newLabel +=  "-" + timeLabels[i]
+      newLabel +=  DASH + timeLabels[i]
+    } else {
+      createLabels += DASH + ZERO_WEEKS;
     }
     labels.push(newLabel);
   }
