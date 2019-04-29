@@ -29,12 +29,19 @@ To run the following application on your localhost, do the following.
 3. In your browser, visit the following URL. 
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
-## Push Local Changes To The Heroku Server
-To push your local changes to the Heroku server, do the following commands in Terminal.
+
+
+## Heroku server and deploying the source code
+[Getting Started on Heroku with Node.js
+](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
+
+To push your local changes to the Heroku server, do the following in the command line.
 1. git add --all
 2. git commit -m "commit message goes here"
 3. git push heroku master
 
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
-3. https://www.chartjs.org/
+2. https://www.chartjs.org/
+3. https://devcenter.heroku.com/articles/getting-started-with-nodejs
+
