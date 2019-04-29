@@ -75,7 +75,7 @@ function createChartOptions(labels, data, hexColours) {
     options: {
        responsive: false,
        legend: {
-          position: 'right'
+          position: 'left'
        }
     }
   };
