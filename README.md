@@ -17,7 +17,7 @@ This is the base URL for the pie chart requests.
 3. chdl - The chart data labels.
 4. chco - The chart arc colours.
 
-## Example
+## Example URL
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
 ## Run Node Server Locally
