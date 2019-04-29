@@ -115,7 +115,7 @@ function createLabels(statues, timeLabels) {
     if (timeLabels[i] != "") {
       newLabel +=  DASH + timeLabels[i]
     } else {
-      createLabels += DASH + ZERO_WEEKS;
+      newLabel += DASH + ZERO_WEEKS;
     }
     labels.push(newLabel);
   }
