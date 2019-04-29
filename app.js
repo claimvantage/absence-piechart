@@ -39,10 +39,10 @@ app.get(PATH, function(req, res) {
     
     let chartJsOptions = createChartOptions(labels, data, hexColours);
     let randomCharacters = random();
-    let height = chartWidthHeight[0];
-    let width = chartWidthHeight[1];
+    let width = chartWidthHeight[0];
+    let height = chartWidthHeight[1];
 
-    let chartNode = new ChartjsNode(200, width);
+    let chartNode = new ChartjsNode(width, height);
 
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
