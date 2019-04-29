@@ -41,10 +41,7 @@ app.get(PATH, function (req, res) {
   let chartColours = paramatersByKey.get(CHCO).split(BAR);
   let hexColours = addHashTags(chartColours);
 
-  console.log("paramatersByKey");
-  console.log(paramatersByKey);
   let chartJsOptions = createChartOptions(labels, data, hexColours);
-  console.log(chartJsOptions);
 
   let chartWidthHeight = paramatersByKey.get(CHS).split(X);
 
