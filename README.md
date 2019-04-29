@@ -20,13 +20,13 @@ This is the base URL for the pie chart requests.
 ## Example URL
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
-## Run Node Server Locally
+## Run Local Web Server
 In the command line, type the following command in the Absence-PieChart folder.
 1. node app.js
 2. In your browser, go to http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
 
-## Push Local Changes To The Heroku server
+## Push Local Changes To The Heroku Server
 To push your local changes to the Heroku server, do the following commands in terminal.
 1. git add --all
 2. git commit -m "commit message goes here"
