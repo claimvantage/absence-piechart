@@ -42,7 +42,7 @@ app.get(PATH, function(req, res) {
     let height = chartWidthHeight[0];
     let width = chartWidthHeight[1];
 
-    let chartNode = new ChartjsNode(height, width);
+    let chartNode = new ChartjsNode(200, width);
 
     return chartNode.drawChart(chartJsOptions)
     .then(() => {
@@ -68,8 +68,7 @@ function createChartOptions(labels, data, hexColours) {
       labels: labels,
       datasets: [{
         data: data,
-        backgroundColor: hexColours,
-        borderWidth: 0
+        backgroundColor: hexColours
       }]
     },
     options: {
