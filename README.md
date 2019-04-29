@@ -2,6 +2,9 @@
 
 This is a node js application that can be run on a Heroku server that returns the buffer of a PNG image. The values for the arcs in the pie chart are retrieved from the URL. 
 
+![pieChart-NodeJs](https://user-images.githubusercontent.com/6918585/56890627-e8237f80-6a71-11e9-9f40-66a3e986d7a6.jpeg)
+
+
 ## Base URL
 http://localhost:3000/piechart?
 
@@ -33,7 +36,3 @@ To push your local changes to the Heroku server, do the following commands in te
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
 2. https://www.chartjs.org/
-
-## Example
-
-
