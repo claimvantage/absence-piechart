@@ -70,8 +70,8 @@ function createChartOptions(labels, data, hexColours) {
     options: {
        responsive: false,
        legend: {
-          padding: 5,
-          fontSize: 6,
+          padding: 2,
+          fontSize: 3,
           position: 'right'
        }
     }
