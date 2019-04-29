@@ -6,7 +6,7 @@ const PATH = "/piechart";
 const PORT = process.env.PORT || 3000;
 
 // URL Keys
-const CHS = 'chs'
+const CHS = 'chs';
 const CHD = "chd";
 const CHL = "chl";
 const CHDL = "chdl";
@@ -19,31 +19,35 @@ const SEMI_COLON = ";";
 const COMMA = ",";
 const X = "x";
 
-const DASH = "-"
+const DASH = "-";
 const ZERO_WEEKS = "0 weeks";
 
 app.get(PATH, function(req, res) {
-    let paramatersByKey = getURLParameters(req);
+    let paramatersByKey = parseQuery(req);
 
     let chartData = paramatersByKey.get(CHD).split(COLON);
     let data = chartData[1].split(COMMA);
 
-    let chartWidthHeight = paramatersByKey.get(CHS).split(X);
-    
     let chartLabels = paramatersByKey.get(CHL).split(BAR);
     let chartDataLabels =  paramatersByKey.get(CHDL).split(BAR);
-    let labels = createLabels(chartDataLabels, chartLabels);
+    let labels = createStatusTimeLabels(chartDataLabels, chartLabels);
 
     let chartColours = paramatersByKey.get(CHCO).split(BAR);
-    hexColours = addHashTags(chartColours)
+    let hexColours = addHashTags(chartColours);
     
     let chartJsOptions = createChartOptions(labels, data, hexColours);
-    let width = chartWidthHeight[0];
-    let height = chartWidthHeight[1];
+    let chartWidthHeight = paramatersByKey.get(CHS).split(X);
 
-    let chartNode = new ChartjsNode(width, height);
+    return response(res, chartJsOptions, chartWidthHeight);
+  }
+);
 
-    return chartNode.drawChart(chartJsOptions)
+function response(res, options, chartWidthHeight) {
+  let width = chartWidthHeight[0];
+  let height = chartWidthHeight[1];
+  let chartNode = new ChartjsNode(width, height);
+
+  return chartNode.drawChart(options)
     .then(() => {
         return chartNode.getImageBuffer('image/png');
     })
@@ -51,8 +55,7 @@ app.get(PATH, function(req, res) {
         res.write(buffer);
         res.end();
     });
-  }
-);
+}
 
 function createChartOptions(labels, data, hexColours) {
   let chartJsOptions = {
@@ -74,10 +77,10 @@ function createChartOptions(labels, data, hexColours) {
   return chartJsOptions;
 }
 
-function getURLParameters(req) {
+function parseQuery(req) {
   let paramatersByKey = new Map();
 
-  for (const key in req.query) {
+  for (let key in req.query) {
     let paramter = req.query[key];
     let k = key.split(SEMI_COLON);
 
@@ -92,20 +95,22 @@ function getURLParameters(req) {
 
 function addHashTags(colours) {
   let hexColours = [];
-  for (c in colours) {
+
+  for (let c in colours) {
     let hex = "#" + colours[c];
     hexColours.push(hex);
   }
   return hexColours;
 }
 
-function createLabels(statues, timeLabels) {
+function createStatusTimeLabels(statues, timeLabels) {
   let labels = [];
   let labelsSize = statues.length;
-  for (i = 0; i < labelsSize; i++) {
+
+  for (let i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
     if (timeLabels[i] != "") {
-      newLabel +=  DASH + timeLabels[i]
+      newLabel +=  DASH + timeLabels[i];
     } else {
       newLabel += DASH + ZERO_WEEKS;
     }
