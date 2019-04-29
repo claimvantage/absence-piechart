@@ -1,4 +1,4 @@
-# Absence-PieChart
+# Absence Pie Chart
 
 The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts).
 
