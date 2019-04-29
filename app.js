@@ -45,7 +45,7 @@ app.get(PATH, function(req, res) {
 function response(res, options, chartWidthHeight) {
   let width = chartWidthHeight[0];
   let height = chartWidthHeight[1];
-  let chartNode = new ChartjsNode(width, height);
+  let chartNode = new ChartjsNode(500, height);
 
   return chartNode.drawChart(options)
     .then(() => {
