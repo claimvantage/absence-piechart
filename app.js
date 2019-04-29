@@ -5,7 +5,6 @@ const ChartjsNode = require('chartjs-node');
 // URL Keys
 const CHS = 'chs'
 const CHD = "chd";
-const CHS = "chs";
 const CHL = "chl";
 const CHDL = "chdl";
 const CHCO = "chco";
