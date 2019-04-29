@@ -28,7 +28,7 @@ To run the following application on your localhost, do the following.
 1. Clone this repo.
 2. In Terminal, type the following commands.
   2a. cd absence-piechart 
-  2b. node app.js
+  2b. node app.js 
 3. In your browser, visit the following URL. 
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
