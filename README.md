@@ -38,9 +38,6 @@ To push your local changes to the Heroku server, do the following commands in Te
 2. git commit -m "commit message goes here"
 3. git push heroku master
 
-## Libraries
-1. https://www.chartjs.org/
-
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
 3. https://www.chartjs.org/
