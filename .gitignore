@@ -9,8 +9,6 @@ npm-debug.log
 
 .history/
 
-testimage.png
-
 # Docker
 Dockerfile
 docker-compose.yml
