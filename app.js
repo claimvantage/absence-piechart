@@ -6,10 +6,10 @@
 
 var express = require('express');
 var app = express();
-const chartjs = require('chartjs-node');
 
 const PATH = '/piechart';
 const PORT = process.env.PORT || 3000;
+const CHARTJS = require('chartjs-node');
 
 // url keys
 const CHS = 'chs';
@@ -51,7 +51,7 @@ app.get(PATH, function (req, res) {
 function response(res, options, chartWidthHeight) {
   let width = chartWidthHeight[0];
   let height = chartWidthHeight[1];
-  let chartNode = new chartjs(width, (height * 2));
+  let chartNode = new CHARTJS(width, height);
 
   return chartNode.drawChart(options)
     .then(() => {
