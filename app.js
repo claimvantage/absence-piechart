@@ -50,6 +50,8 @@ app.get(PATH, function (req, res) {
   return response(res, chartJsOptions, chartWidthHeight);
 });
 
+app.listen(PORT); 
+
 function response(res, options, chartWidthHeight) {
   let width = DEFAULT_WIDTH;
   let height = DEFAULT_HEIGHT;
@@ -59,7 +61,8 @@ function response(res, options, chartWidthHeight) {
     height = chartWidthHeight[1];
   }
 
-  return  new CHARTJS(width, height).drawChart(options)
+  let chartNode = new CHARTJS(width, height)
+  return  chartNode.drawChart(options)
     .then(() => {
       return chartNode.getImageBuffer('image/png');
     })
@@ -120,7 +123,7 @@ function createStatusTimeLabels(statues, timeLabels) {
   let labels = [];
   let labelsSize = statues.length;
 
-  for (const i = 0; i < labelsSize; i++) {
+  for (let i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
     if (timeLabels[i] !== '') {
       newLabel += DASH + timeLabels[i];
@@ -131,5 +134,3 @@ function createStatusTimeLabels(statues, timeLabels) {
   }
   return labels;
 }
-
-app.listen(PORT); 
