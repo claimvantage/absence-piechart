@@ -1,6 +1,6 @@
 
 //  Node js application to return the buffer of a pie chart PNG image.
-//  The charts are drwn using Chart.js - https://www.chartjs.org/
+//  The pie chart are drawn using Chart.js - https://www.chartjs.org/
 
 'use strict'
 
