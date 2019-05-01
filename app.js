@@ -86,7 +86,7 @@ function createChartOptions(labels, data, hexColours) {
       responsive: false,
       legend: {
         position: 'right',
-        boxWidth: 20
+        boxWidth: 100
       }
     }
   };
