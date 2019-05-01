@@ -22,6 +22,8 @@ const SEMI_COLON = ';';
 const COMMA = ',';
 const X = 'x';
 
+const DEFAULT_WIDTH = 900;
+const DEFAULT_HEIGHT = 90;
 const DASH = '-';
 const ZERO_WEEKS = '0 weeks';
 
@@ -49,11 +51,15 @@ app.get(PATH, function (req, res) {
 });
 
 function response(res, options, chartWidthHeight) {
-  let width = chartWidthHeight[0];
-  let height = chartWidthHeight[1];
-  let chartNode = new CHARTJS(width, height);
+  let width = DEFAULT_WIDTH;
+  let height = DEFAULT_HEIGHT;
 
-  return chartNode.drawChart(options)
+  if (chartWidthHeight.length == 2) {
+    width = chartWidthHeight[0];
+    height = chartWidthHeight[1];
+  }
+
+  return  new CHARTJS(width, height).drawChart(options)
     .then(() => {
       return chartNode.getImageBuffer('image/png');
     })
