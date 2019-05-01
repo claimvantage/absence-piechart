@@ -6,7 +6,9 @@
 
 const PATH = '/piechart';
 const PORT = process.env.PORT || 3000;
+const WORKERS = process.env.WEB_CONCURRENCY || 1
 const CHARTJS = require('chartjs-node');
+const throng = require('throng')
 
 // url keys
 const CHS = 'chs';
@@ -30,107 +32,114 @@ const ZERO_WEEKS = '0 weeks';
 var express = require('express');
 var app = express();
 
-app.get(PATH, function (req, res) {
-  var paramatersByKey = parseQuery(req);
+throng({
+  workers: WORKERS,
+  lifetime: Infinity
+}, start)
 
-  var chartData = paramatersByKey.get(CHD).split(COLON);
-  var data = chartData[1].split(COMMA);
-
-  var chartLabels = paramatersByKey.get(CHL).split(BAR);
-  var chartDataLabels = paramatersByKey.get(CHDL).split(BAR);
-  var labels = createStatusTimeLabels(chartDataLabels, chartLabels);
-
-  var chartColours = paramatersByKey.get(CHCO).split(BAR);
-  var hexColours = addHashTags(chartColours);
-
-  var chartJsOptions = createChartOptions(labels, data, hexColours);
-
-  var chartWidthHeight = paramatersByKey.get(CHS).split(X);
-
-  return response(res, chartJsOptions, chartWidthHeight);
-});
-
-app.listen(PORT); 
-
-function response(res, options, chartWidthHeight) {
-  var width = DEFAULT_WIDTH;
-  var height = DEFAULT_HEIGHT;
-
-  if (chartWidthHeight.length == 2) {
-    width = chartWidthHeight[0];
-    height = chartWidthHeight[1];
+function start() {
+  app.get(PATH, function (req, res) {
+    var paramatersByKey = parseQuery(req);
+  
+    var chartData = paramatersByKey.get(CHD).split(COLON);
+    var data = chartData[1].split(COMMA);
+  
+    var chartLabels = paramatersByKey.get(CHL).split(BAR);
+    var chartDataLabels = paramatersByKey.get(CHDL).split(BAR);
+    var labels = createStatusTimeLabels(chartDataLabels, chartLabels);
+  
+    var chartColours = paramatersByKey.get(CHCO).split(BAR);
+    var hexColours = addHashTags(chartColours);
+  
+    var chartJsOptions = createChartOptions(labels, data, hexColours);
+  
+    var chartWidthHeight = paramatersByKey.get(CHS).split(X);
+  
+    return response(res, chartJsOptions, chartWidthHeight);
+  });
+  
+  app.listen(PORT); 
+  
+  function response(res, options, chartWidthHeight) {
+    var width = DEFAULT_WIDTH;
+    var height = DEFAULT_HEIGHT;
+  
+    if (chartWidthHeight.length == 2) {
+      width = chartWidthHeight[0];
+      height = chartWidthHeight[1];
+    }
+  
+    var chartNode = new CHARTJS(width, height)
+    return  chartNode.drawChart(options)
+      .then(() => {
+        return chartNode.getImageBuffer('image/png');
+      })
+      .then(buffer => {
+        res.write(buffer);
+        res.end();
+      });
   }
-
-  var chartNode = new CHARTJS(width, height)
-  return  chartNode.drawChart(options)
-    .then(() => {
-      return chartNode.getImageBuffer('image/png');
-    })
-    .then(buffer => {
-      res.write(buffer);
-      res.end();
-    });
-}
-
-function createChartOptions(labels, data, hexColours) {
-  var chartJsOptions = {
-    type: 'pie',
-    data: {
-      labels: labels,
-      datasets: [{
-        data: data,
-        backgroundColor: hexColours
-      }]
-    },
-    options: {
-      responsive: false,
-      legend: {
-        position: 'right',
-        boxWidth: 100
+  
+  function createChartOptions(labels, data, hexColours) {
+    var chartJsOptions = {
+      type: 'pie',
+      data: {
+        labels: labels,
+        datasets: [{
+          data: data,
+          backgroundColor: hexColours
+        }]
+      },
+      options: {
+        responsive: false,
+        legend: {
+          position: 'right',
+          boxWidth: 100
+        }
+      }
+    };
+    return chartJsOptions;
+  }
+  
+  function parseQuery(req) {
+    var paramatersByKey = new Map();
+  
+    for (const key in req.query) {
+      let paramter = req.query[key];
+      let k = key.split(SEMI_COLON);
+  
+      if (k.length > 1) {
+        paramatersByKey.set(k[1], paramter);
+      } else {
+        paramatersByKey.set(k[0], paramter);
       }
     }
-  };
-  return chartJsOptions;
-}
-
-function parseQuery(req) {
-  var paramatersByKey = new Map();
-
-  for (const key in req.query) {
-    let paramter = req.query[key];
-    let k = key.split(SEMI_COLON);
-
-    if (k.length > 1) {
-      paramatersByKey.set(k[1], paramter);
-    } else {
-      paramatersByKey.set(k[0], paramter);
+    return paramatersByKey;
+  }
+  
+  function addHashTags(colours) {
+    var hexColours = [];
+  
+    for (const c in colours) {
+      let hex = '#' + colours[c];
+      hexColours.push(hex);
     }
+    return hexColours;
   }
-  return paramatersByKey;
-}
-
-function addHashTags(colours) {
-  var hexColours = [];
-
-  for (const c in colours) {
-    let hex = '#' + colours[c];
-    hexColours.push(hex);
-  }
-  return hexColours;
-}
-
-function createStatusTimeLabels(statues, timeLabels) {
-  var labels = [];
-  var labelsSize = statues.length;
-
-  for (let i = 0; i < labelsSize; i++) {
-    let newLabel = statues[i];
-    if (timeLabels[i] !== '') {
-      newLabel += DASH + timeLabels[i];
-    } else {
-      newLabel += DASH + ZERO_WEEKS;
+  
+  function createStatusTimeLabels(statues, timeLabels) {
+    var labels = [];
+    var labelsSize = statues.length;
+  
+    for (let i = 0; i < labelsSize; i++) {
+      let newLabel = statues[i];
+      if (timeLabels[i] !== '') {
+        newLabel += DASH + timeLabels[i];
+      } else {
+        newLabel += DASH + ZERO_WEEKS;
+      }
+      labels.push(newLabel);
     }
-    labels.push(newLabel);
+    return labels;
   }
-  return labels;
 }
