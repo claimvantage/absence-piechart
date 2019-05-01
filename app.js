@@ -4,9 +4,6 @@
 
 'use strict'
 
-var express = require('express');
-var app = express();
-
 const PATH = '/piechart';
 const PORT = process.env.PORT || 3000;
 const CHARTJS = require('chartjs-node');
@@ -27,6 +24,9 @@ const X = 'x';
 
 const DASH = '-';
 const ZERO_WEEKS = '0 weeks';
+
+var express = require('express');
+var app = express();
 
 app.get(PATH, function (req, res) {
   let paramatersByKey = parseQuery(req);
@@ -87,7 +87,7 @@ function createChartOptions(labels, data, hexColours) {
 function parseQuery(req) {
   let paramatersByKey = new Map();
 
-  for (let key in req.query) {
+  for (const key in req.query) {
     let paramter = req.query[key];
     let k = key.split(SEMI_COLON);
 
@@ -103,7 +103,7 @@ function parseQuery(req) {
 function addHashTags(colours) {
   let hexColours = [];
 
-  for (let c in colours) {
+  for (const c in colours) {
     let hex = '#' + colours[c];
     hexColours.push(hex);
   }
@@ -114,7 +114,7 @@ function createStatusTimeLabels(statues, timeLabels) {
   let labels = [];
   let labelsSize = statues.length;
 
-  for (let i = 0; i < labelsSize; i++) {
+  for (const i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
     if (timeLabels[i] !== '') {
       newLabel += DASH + timeLabels[i];
