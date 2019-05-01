@@ -1,7 +1,7 @@
 {
   "name": "piechart-js",
   "version": "1.0.0",
-  "description": "app for returning pie chart images",
+  "description": "app for returning pie chart png image.",
   "main": "app.js",
   "dependencies": {
     "chart.js": "^2.8.0",
