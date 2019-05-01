@@ -31,21 +31,21 @@ var express = require('express');
 var app = express();
 
 app.get(PATH, function (req, res) {
-  let paramatersByKey = parseQuery(req);
+  var paramatersByKey = parseQuery(req);
 
-  let chartData = paramatersByKey.get(CHD).split(COLON);
-  let data = chartData[1].split(COMMA);
+  var chartData = paramatersByKey.get(CHD).split(COLON);
+  var data = chartData[1].split(COMMA);
 
-  let chartLabels = paramatersByKey.get(CHL).split(BAR);
-  let chartDataLabels = paramatersByKey.get(CHDL).split(BAR);
-  let labels = createStatusTimeLabels(chartDataLabels, chartLabels);
+  var chartLabels = paramatersByKey.get(CHL).split(BAR);
+  var chartDataLabels = paramatersByKey.get(CHDL).split(BAR);
+  var labels = createStatusTimeLabels(chartDataLabels, chartLabels);
 
-  let chartColours = paramatersByKey.get(CHCO).split(BAR);
-  let hexColours = addHashTags(chartColours);
+  var chartColours = paramatersByKey.get(CHCO).split(BAR);
+  var hexColours = addHashTags(chartColours);
 
-  let chartJsOptions = createChartOptions(labels, data, hexColours);
+  var chartJsOptions = createChartOptions(labels, data, hexColours);
 
-  let chartWidthHeight = paramatersByKey.get(CHS).split(X);
+  var chartWidthHeight = paramatersByKey.get(CHS).split(X);
 
   return response(res, chartJsOptions, chartWidthHeight);
 });
@@ -53,15 +53,15 @@ app.get(PATH, function (req, res) {
 app.listen(PORT); 
 
 function response(res, options, chartWidthHeight) {
-  let width = DEFAULT_WIDTH;
-  let height = DEFAULT_HEIGHT;
+  var width = DEFAULT_WIDTH;
+  var height = DEFAULT_HEIGHT;
 
   if (chartWidthHeight.length == 2) {
     width = chartWidthHeight[0];
     height = chartWidthHeight[1];
   }
 
-  let chartNode = new CHARTJS(width, height)
+  var chartNode = new CHARTJS(width, height)
   return  chartNode.drawChart(options)
     .then(() => {
       return chartNode.getImageBuffer('image/png');
@@ -73,7 +73,7 @@ function response(res, options, chartWidthHeight) {
 }
 
 function createChartOptions(labels, data, hexColours) {
-  let chartJsOptions = {
+  var chartJsOptions = {
     type: 'pie',
     data: {
       labels: labels,
@@ -94,7 +94,7 @@ function createChartOptions(labels, data, hexColours) {
 }
 
 function parseQuery(req) {
-  let paramatersByKey = new Map();
+  var paramatersByKey = new Map();
 
   for (const key in req.query) {
     let paramter = req.query[key];
@@ -110,7 +110,7 @@ function parseQuery(req) {
 }
 
 function addHashTags(colours) {
-  let hexColours = [];
+  var hexColours = [];
 
   for (const c in colours) {
     let hex = '#' + colours[c];
@@ -120,8 +120,8 @@ function addHashTags(colours) {
 }
 
 function createStatusTimeLabels(statues, timeLabels) {
-  let labels = [];
-  let labelsSize = statues.length;
+  var labels = [];
+  var labelsSize = statues.length;
 
   for (let i = 0; i < labelsSize; i++) {
     let newLabel = statues[i];
