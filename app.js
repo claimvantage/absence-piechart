@@ -104,7 +104,8 @@ function start() {
         },
         legend: {
           display: true,
-          position: 'right'
+          position: 'right',
+          width: 20
         }
       }
     };
