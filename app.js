@@ -96,7 +96,7 @@ function start() {
       options: {
         layout: {
           padding: {
-              left: -250,
+              left: -400,
               top: 0,
               bottom: 0
           }
