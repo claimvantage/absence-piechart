@@ -92,7 +92,8 @@ function start() {
       },
       options: {
         responsive: false,
-        position: 'left',
+        fullWidth: false,
+        position	: 'left',
         labels: {
           fontColor: 'rgb(255, 99, 132)'
         },
