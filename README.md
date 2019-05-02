@@ -42,4 +42,5 @@ To push your local changes to the Heroku server, do the following commands
 1. https://developers.google.com/chart/image/docs/making_charts
 2. https://www.chartjs.org/
 3. https://devcenter.heroku.com/articles/getting-started-with-nodejs
+4. https://www.npmjs.com/package/throng
 
