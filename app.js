@@ -92,8 +92,9 @@ function start() {
       },
       options: {
         responsive: false,
-        legend: {
-          position: 'left',          
+        labels: {
+          position: 'left',
+          fontColor: 'rgb(255, 99, 132)'
         },
         layout: {
           padding: {
