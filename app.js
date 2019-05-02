@@ -93,11 +93,11 @@ function start() {
       options: {
         responsive: false,
         fullWidth: false,
-        position	: 'left',
         labels: {
           fontColor: 'rgb(255, 99, 132)'
         },
         layout: {
+          position: 'left',
           padding: {
               left: 0,
               right: 0,
