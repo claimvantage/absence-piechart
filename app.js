@@ -93,17 +93,9 @@ function start() {
       options: {
         responsive: false,
         fullWidth: false,
-        labels: {
-          fontColor: 'rgb(255, 99, 132)'
-        },
-        layout: {
-          position: 'left',
-          padding: {
-              left: 0,
-              right: 0,
-              top: 0,
-              bottom: 0
-          }
+        legend: {
+          position: 'right',
+          boxWidth: 100
         }
       }
     };
