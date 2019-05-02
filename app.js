@@ -96,17 +96,14 @@ function start() {
       options: {
         layout: {
           padding: {
-              left: 100,
-              right: 100,
+              left: 50,
+              right: 50,
               top: 0,
               bottom: 0
           }
         },
         legend: {
             display: true,
-            labels: {
-                fontColor: 'rgb(255, 99, 132)'
-            }
         }
       }
     };
