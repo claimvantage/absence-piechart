@@ -94,18 +94,9 @@ function start() {
         }]
       },
       options: {
-        layout: {
-          padding: {
-              left: -400,
-              right: 100,
-              top: 0,
-              bottom: 0
-          }
-        },
         legend: {
           display: true,
           position: 'top',
-          boxWidth: 20
         }
       }
     };
