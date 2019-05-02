@@ -1,7 +1,7 @@
 {
   "name": "piechart-js",
   "version": "1.0.0",
-  "description": "app for returning pie chart png image.",
+  "description": "Node js app that returns the buffer of a pie chart png.",
   "main": "app.js",
   "dependencies": {
     "chart.js": "^2.8.0",
@@ -20,5 +20,5 @@
     "peichart"
   ],
   "author": "Jonathan Riordan",
-  "license": "ISC"
+  "license": "MIT"
 }
