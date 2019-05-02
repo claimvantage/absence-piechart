@@ -3,34 +3,10 @@
 //  The pie chart are drawn using Chart.js - https://www.chartjs.org/
 
 'use strict'
-
-const PATH = '/piechart';
-const PORT = process.env.PORT || 3000;
-const WORKERS = process.env.WEB_CONCURRENCY || 1
-const CHARTJS = require('chartjs-node');
 const throng = require('throng')
 
-// url keys
-const CHS = 'chs';
-const CHD = 'chd';
-const CHL = 'chl';
-const CHDL = 'chdl';
-const CHCO = 'chco';
-
-// seperators
-const BAR = '|';
-const COLON = ':';
-const SEMI_COLON = ';';
-const COMMA = ',';
-const X = 'x';
-
-const DEFAULT_WIDTH = 900;
-const DEFAULT_HEIGHT = 90;
-const DASH = '-';
-const ZERO_WEEKS = '0 weeks';
-
-var express = require('express');
-var app = express();
+const PORT = process.env.PORT || 3000;
+const WORKERS = process.env.WEB_CONCURRENCY || 1;
 
 throng({
   workers: WORKERS,
@@ -38,6 +14,33 @@ throng({
 }, start)
 
 function start() {
+  const chartJS = require('chartjs-node');
+
+  const PATH = '/piechart';
+
+  // url keys
+  const CHS = 'chs';
+  const CHD = 'chd';
+  const CHL = 'chl';
+  const CHDL = 'chdl';
+  const CHCO = 'chco';
+  
+  // seperators
+  const BAR = '|';
+  const COLON = ':';
+  const SEMI_COLON = ';';
+  const COMMA = ',';
+  const X = 'x';
+  
+  const DEFAULT_WIDTH = 900;
+  const DEFAULT_HEIGHT = 90;
+  
+  const DASH = '-';
+  const ZERO_WEEKS = '0 weeks';
+  
+  var express = require('express');
+  var app = express();
+
   app.get(PATH, function (req, res) {
     var paramatersByKey = parseQuery(req);
   
@@ -69,7 +72,7 @@ function start() {
       height = chartWidthHeight[1];
     }
   
-    var chartNode = new CHARTJS(width, height)
+    var chartNode = new chartJS(width, height)
     return  chartNode.drawChart(options)
       .then(() => {
         return chartNode.getImageBuffer('image/png');
@@ -96,14 +99,6 @@ function start() {
         legend: {
           position: 'right',
           boxWidth: 100
-        },
-        layout: {
-          padding: {
-              left: 50,
-              right: 0,
-              top: 0,
-              bottom: 0
-          }
         }
       }
     };
