@@ -92,8 +92,8 @@ function start() {
       },
       options: {
         responsive: false,
+        position: 'left',
         labels: {
-          position: 'left',
           fontColor: 'rgb(255, 99, 132)'
         },
         layout: {
