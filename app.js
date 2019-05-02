@@ -98,7 +98,7 @@ function start() {
         },
         layout: {
           padding: {
-              left: 200,
+              left: 300,
               right: 0,
               top: 0,
               bottom: 0
