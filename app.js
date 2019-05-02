@@ -93,12 +93,11 @@ function start() {
       options: {
         responsive: false,
         legend: {
-          position: 'left',
-          boxWidth: 100
+          position: 'left',          
         },
         layout: {
           padding: {
-              left: 300,
+              left: 0,
               right: 0,
               top: 0,
               bottom: 0
