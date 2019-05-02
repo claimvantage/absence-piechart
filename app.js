@@ -94,11 +94,17 @@ function start() {
         }]
       },
       options: {
-        responsive: false,
-        fullWidth: false,
+        layout: {
+          padding: {
+              left: 100,
+              right: 100,
+              top: 0,
+              bottom: 0
+          }
+        },
         legend: {
-          position: 'right',
-          boxWidth: 100
+          display: true,
+          position: 'right'
         }
       }
     };
