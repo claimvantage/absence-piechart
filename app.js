@@ -72,7 +72,7 @@ function start() {
     var chartNode = new CHARTJS(width, height)
     return  chartNode.drawChart(options)
       .then(() => {
-        return chartNode.toBase64Image();
+        return chartNode.getImageBuffer('image/png');
       })
       .then(buffer => {
         res.write(buffer);
