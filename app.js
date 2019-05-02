@@ -105,7 +105,7 @@ function start() {
         legend: {
           display: true,
           position: 'right',
-          width: 20
+          boxWidth: 20
         }
       }
     };
