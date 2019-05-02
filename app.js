@@ -95,6 +95,14 @@ function start() {
         legend: {
           position: 'right',
           boxWidth: 100
+        },
+        layout: {
+          padding: {
+              left: 100,
+              right: 0,
+              top: 0,
+              bottom: 0
+          }
         }
       }
     };
