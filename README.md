@@ -29,8 +29,8 @@ To run the application on your localhost, do the following.
 4. In your browser, visit the following URL. 
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
-## Heroku server and deploying the source code
-1. Follow these steps to Setup your Heroku server - [Getting Started on Heroku with Node.js
+## Setting up a Heroku server and deploying local changes.
+Follow the [Getting Started on Heroku with Node.js
 ](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
 To push your local changes to the Heroku server, do the following commands
