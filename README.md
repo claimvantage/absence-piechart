@@ -17,11 +17,6 @@ The following are the parameters we support. In order for a pie chart to be draw
 3. chdl - The chart data labels.
 4. chco - The chart arc hex codes.
 
-## Example URL
-```console
-http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
-```
-
 ## Run locally
 To run the application on your localhost, do the following.
 
