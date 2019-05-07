@@ -11,6 +11,7 @@ const WORKERS = process.env.WEB_CONCURRENCY || 1;
 // Node.js is single threaded
 // Fork multiple processes to take advantage of the available resources using throng.
 // If a worker dies, a new one is created. 
+// https://devcenter.heroku.com/articles/node-concurrency
 throng({
   workers: WORKERS,
   lifetime: Infinity
