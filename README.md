@@ -23,7 +23,7 @@ http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20
 ## Run locally
 To run the application on your localhost, do the following.
 
-1. Make sure you have Node Js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
+1. Make sure you have Node.js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
 1. Clone this repo.
 2. In the Terminal application, type the following commands.
  * cd absence-piechart 
@@ -41,7 +41,7 @@ Once you are ready to push your local changes onto Heroku, perform the following
 3. git push heroku master
 
 ## Files
-1. Proicfile declares what commands are to be executed on Heroku. The procfile starts the node js application.
+1. Proicfile declares what commands are to be executed on Heroku. The procfile starts the Node.js application.
 2. package.json and package-lock.json list the appliation dependencies. These dependencies are installed when the application is deployed to Heroku. 
 3. app.js is the webserver. It listens for requests and returns the buffer of a pie chart png image.
 
