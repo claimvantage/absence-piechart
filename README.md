@@ -4,7 +4,9 @@ The [Google Chart API](https://developers.google.com/chart/image/docs/making_cha
 
 This is a [Node js](https://nodejs.org/en/) application that can run on a Heroku server that returns the buffer of a PNG image. The arc values for the pie chart are retrieved from the request URL. The pie charts are drawn using the [Chart.js](https://www.chartjs.org/) library.
 
+<p align="center">
 <img width="387" alt="Screenshot 2019-05-07 at 10 42 58" src="https://user-images.githubusercontent.com/6918585/57290247-ed597d80-70b4-11e9-8ef8-b8e797ff87f6.png">
+</p>
 
 ## URL Parameters:
 The following are the parameters we support. In order for a pie chart to be drawn, the following parameters have to be present in the URL. 
