@@ -38,6 +38,8 @@ Once you are ready to push your local changes onto Heroku, perform the following
 2. git commit -m "commit message goes here"
 3. git push heroku master
 
+The Proicfile declares what commands are to be executed on Heroku. The procfile starts the node js application.
+
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
 2. https://www.chartjs.org/
