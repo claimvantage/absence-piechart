@@ -18,7 +18,9 @@ The following are the parameters we support. In order for a pie chart to be draw
 4. chco - The chart arc colours.
 
 ## Example URL
+```console
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
+```
 
 ## Run locally
 To run the application on your localhost, do the following.
@@ -26,24 +28,39 @@ To run the application on your localhost, do the following.
 1. Make sure you have Node.js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
 1. Clone this repo.
 2. In the Terminal application, type the following commands.
- * cd absence-piechart 
- * node app.js 
+```bash
+cd absence-piechart 
+```
+```bash
+node app.js 
+```
 4. In your browser, visit the following URL. 
+```console
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
+```
 
 ## Setting up a Heroku server and deploying local changes.
 Follow the steps for [Getting Started on Heroku with Node.js
 ](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
 Once you are ready to push your local changes onto Heroku, perform the following commands in the root folder of absence-piechart.
-1. git add --all
-2. git commit -m "commit message goes here"
-3. git push heroku master
+```bash
+git add --all
+```
+```bash
+git commit -m "commit message goes here"
+```
+```bash
+git push heroku master
+```
 
 ## Files
 1. Proicfile declares what commands are to be executed on Heroku. The procfile starts the Node.js application.
 2. package.json and package-lock.json list the appliation dependencies. These dependencies are installed when the application is deployed to Heroku. 
 3. app.js is the webserver. It listens for requests and returns the buffer of a pie chart png image.
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
