@@ -38,7 +38,10 @@ Once you are ready to push your local changes onto Heroku, perform the following
 2. git commit -m "commit message goes here"
 3. git push heroku master
 
-The Proicfile declares what commands are to be executed on Heroku. The procfile starts the node js application.
+## Files
+1. Proicfile declares what commands are to be executed on Heroku. The procfile starts the node js application.
+2. package.json and package-lock.json list the appliation dependencies. These dependencies are installed when the application is deployed to Heroku. 
+3. app.js is the webserver. It listens for requests and returns the buffer of a pie chart png image.
 
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
