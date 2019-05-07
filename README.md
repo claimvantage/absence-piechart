@@ -15,7 +15,7 @@ The following are the parameters we support. In order for a pie chart to be draw
 1. chd - The chart data.
 2. chl - The slice labels.
 3. chdl - The chart data labels.
-4. chco - The chart arc colours.
+4. chco - The chart arc hex codes.
 
 ## Example URL
 ```console
