@@ -7,7 +7,10 @@ const throng = require('throng')
 
 const PORT = process.env.PORT || 3000;
 const WORKERS = process.env.WEB_CONCURRENCY || 1;
-
+ 
+// Node.js is single threaded
+// Fork multiple processes to take advantage of the available resources using throng.
+// If a worker dies, a new one is created. 
 throng({
   workers: WORKERS,
   lifetime: Infinity
