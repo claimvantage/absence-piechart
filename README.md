@@ -50,7 +50,7 @@ git push heroku master
 ```
 
 ## Files
-1. Proicfile declares what commands are to be executed on Heroku. The procfile starts the Node.js application.
+1. Procfile declares what commands are to be executed on Heroku. The procfile starts the Node.js application.
 2. package.json and package-lock.json list the appliation dependencies. These dependencies are installed when the application is deployed to Heroku. 
 3. app.js is the webserver. It listens for requests and returns the buffer of a pie chart png image.
 
