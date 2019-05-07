@@ -27,7 +27,7 @@ To run the application on your localhost, do the following.
 
 1. Make sure you have Node.js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
 1. Clone this repo.
-2. In the Terminal application, type the following commands.
+2. In Terminal, type the following commands.
 ```bash
 cd absence-piechart 
 ```
@@ -43,7 +43,7 @@ http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20
 Follow the steps for [Getting Started on Heroku with Node.js
 ](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
-Once you are ready to push your local changes onto Heroku, perform the following commands in the root folder of absence-piechart.
+Once you are ready to push your local changes onto Heroku, perform the following commands in Terminal.
 ```bash
 git add --all
 ```
