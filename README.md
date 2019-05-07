@@ -8,7 +8,7 @@ This is a [Node js](https://nodejs.org/en/) application that can run on a Heroku
 <img width="387" alt="Screenshot 2019-05-07 at 10 42 58" src="https://user-images.githubusercontent.com/6918585/57290247-ed597d80-70b4-11e9-8ef8-b8e797ff87f6.png">
 </p>
 
-## URL Parameters:
+## URL parameters
 The following are the parameters we support. In order for a pie chart to be drawn, the following parameters have to be present in the URL. 
 
 1. chs - The chart size (width x height).
@@ -39,7 +39,7 @@ node app.js
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 ```
 
-## Setting up a Heroku server and deploying local changes.
+## Setting up a Heroku server and deploying local changes
 Follow the steps for [Getting Started on Heroku with Node.js
 ](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
