@@ -1,6 +1,6 @@
-# Absence Pie Chart
+# absence-piechart
 
-The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts). The solution we have provided is for pie charts only.
+The [Google Chart API](https://developers.google.com/chart/image/docs/making_charts) has been deprecated. This is our solution to overcome this issue. We have followed the same URL pattern outlined in the following [documentation](https://developers.google.com/chart/image/docs/making_charts). The solution we have provided is for pie charts only amd can be used as a starting point.
 
 This is a [Node js](https://nodejs.org/en/) application that can run on a Heroku server that returns the buffer of a PNG image. The arc values for the pie chart are retrieved from the request URL. The pie charts are drawn using the [Chart.js](https://www.chartjs.org/) library.
 
@@ -53,9 +53,6 @@ git push heroku master
 1. Procfile declares what commands are to be executed on Heroku. The procfile starts the Node.js application.
 2. package.json and package-lock.json list the appliation dependencies. These dependencies are installed when the application is deployed to Heroku. 
 3. app.js is the webserver. It listens for requests and returns the buffer of a pie chart png image.
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## References
 1. https://developers.google.com/chart/image/docs/making_charts
