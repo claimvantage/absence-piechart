@@ -18,7 +18,7 @@ The following are the parameters we support. In order for a pie chart to be draw
 ## Example URL
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
-## Run Local Web Server
+## Run locally
 To run the application on your localhost, do the following.
 
 1. Make sure you have Node Js installed. The latest version can be downloaded [here](https://developers.google.com/chart/image/docs/making_charts)
