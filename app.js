@@ -35,7 +35,7 @@ function start() {
   const DEFAULT_WIDTH = 900;
   const DEFAULT_HEIGHT = 90;
   
-  const DASH = '-';
+  const DASH = ' - ';
   const ZERO_WEEKS = '0 weeks';
   
   var express = require('express');
@@ -144,9 +144,9 @@ function start() {
     for (let i = 0; i < labelsSize; i++) {
       let newLabel = statues[i];
       if (timeLabels[i] !== '') {
-        newLabel += DASH + timeLabels[i];
+        newLabel += DASH.concat(timeLabels[i]);
       } else {
-        newLabel += DASH + ZERO_WEEKS;
+        newLabel += DASH.concat(ZERO_WEEKS);
       }
       labels.push(newLabel);
     }
