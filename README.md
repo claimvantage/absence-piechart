@@ -30,10 +30,10 @@ To run the application on your localhost, do the following.
 http://localhost:3000/piechart?chs=600x90&cht=pc&chd=t:0.01,.01,12,.01&chl=32%20hours|||11%20weeks%208%20hours&chdl=Pending|Approved|Deducted|Remaining&chco=00FF0066|00FF00|0000FF44|ADD8E6
 
 ## Setting up a Heroku server and deploying local changes.
-Follow the [Getting Started on Heroku with Node.js
+Follow the steps for [Getting Started on Heroku with Node.js
 ](https://devcenter.heroku.com/articles/getting-started-with-nodejs).
 
-To push your local changes to the Heroku server, do the following commands
+Once you are ready to push your local changes onto Heroku, perform the following commands in the root folder of absence-piechart.
 1. git add --all
 2. git commit -m "commit message goes here"
 3. git push heroku master
