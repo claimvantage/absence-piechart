@@ -1,4 +1,7 @@
-A reference to a related issue in your repository.
-A description of the changes proposed in the pull request.
-@mentions of the person or team responsible for reviewing proposed changes.
-Release Note
+Jira Ticket Link:
+
+Description of change
+
+Related Tickets/Pull Request eg: Is this a patch branch commit. Link to the master branch commit.
+
+Screenshots (if appropriate): eg: Updates to the UI
