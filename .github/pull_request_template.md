@@ -1,7 +1,7 @@
-Jira Ticket Link:
+# Jira ticket link
 
-Description of change
+# Description of change
 
-Related Tickets/Pull Request eg: Is this a patch branch commit. Link to the master branch commit.
+# Related tickets/pull request
 
-Screenshots (if appropriate): eg: Updates to the UI
+# Screenshots (if appropriate)
