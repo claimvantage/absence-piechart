@@ -4,7 +4,7 @@
   "description": "Node js app that returns the buffer of a pie chart png.",
   "main": "app.js",
   "dependencies": {
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "chartjs-node": "^1.7.1",
     "express": "^4.16.4",
     "jsdom": "^9.12.0",
